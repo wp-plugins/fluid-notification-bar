@@ -2,7 +2,7 @@
 Contributors: shrinitech 
 Donate link:http://masterblogster.com/plugins/fluid-notification-bar/
 Tags: notification bar, toolbar, alert bar, message bar
-Requires at least: 3.0 or higher
+Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 1.0
 License: GPLv2 or later
@@ -25,5 +25,4 @@ Read more instructions on using fluid notification bar at http://masterblogster.
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
 
 == Screenshots ==
-Screenshots of Fluid Notification Bar plugin
-screenshot-1.png
+1. Screenshots of Fluid Notification Bar plugin
