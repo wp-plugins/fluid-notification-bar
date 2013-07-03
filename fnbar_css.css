@@ -1,12 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
-
+#toolbar_holder{
+	visibility:hidden; width:100%;  height:auto; background-color:#0070FF;  border-bottom:solid #FFF; box-shadow: 1px 1px 2px 2px #242888; overflow:hidden
+}
 #toolbar{
-	visibility:hidden; width:100%; height:auto; padding:1px; background-color:#0070FF; color:#FFF; text-align:center; line-height:30px; vertical-align:central; font-weight:bold; border-bottom:solid #FFF; box-shadow: 1px 1px 2px 2px #242888;
+	width:90%; height:auto; color:#FFF; text-align:center; vertical-align:central; font-weight:bold; float:left;line-height:30px;
 	}
 	
 #hidetoolbar{
-	height:auto; width:30px; background-color:#F33; float:right; font-size:large; cursor:pointer;
+	height:30px; width:30px; background-color:#F33; color:#FFF; float:right; font-size:medium; cursor:pointer; text-align:center;font-weight:bold; line-height:30px;
 }
 
 #toolbar a{
