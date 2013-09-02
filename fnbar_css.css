@@ -6,11 +6,18 @@
 #toolbar{
 	width:90%; height:auto; color:#FFF; text-align:center; vertical-align:central; font-weight:bold; float:left;line-height:30px;
 	}
+
+#toolbar a{
+	background-color:#FFF;
+	padding-left:2px;
+	padding-right:2px;
+	color:#000;
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	}
 	
 #hidetoolbar{
 	height:30px; width:30px; background-color:#F33; color:#FFF; float:right; font-size:medium; cursor:pointer; text-align:center;font-weight:bold; line-height:30px;
-}
-
-#toolbar a{
-	color:#0FF;
 }

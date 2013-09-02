@@ -5,7 +5,7 @@ Plugin Name: Fluid Notification Bar
 Plugin URI: http://masterblogster.com/plugins/fluid-notification-bar/
 Description: Wanna say something to your website visitor? This plugin adds the cool responsive notification bar on the top of your website homepage.
 Author: Shrinivas Naik
-Version: 1.1
+Version: 2.0
 Author URI: http://www.masterblogster.com
 */
 
@@ -16,7 +16,7 @@ include(plugin_dir_path( __FILE__ ) . 'fnbar_plugin_options.php');
 /*  Main plugin code */
 function load_fn_notibar_on_header()
 {
-if (is_home()) {
+
         //Get notification text
         $fn_noti_text=get_option('fn_notibar_options');
 
@@ -28,7 +28,7 @@ if (is_home()) {
 	<div id="toolbar">'. $fn_noti_text['fn_notibar_text'] .'</div>
     <div id="hidetoolbar">X</div>
 	</div>';
-    } 
+ 
 }
 
 function fn_notibar_scripts() {
