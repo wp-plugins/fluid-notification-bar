@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
     
     <!--Show notification after 5 second-->
     jQuery("#toolbar_holder").delay(5000).show(0);
-	jQuery("#toolbar_holder").css({"visibility":"visible"});
+	jQuery("#toolbar_holder").css({"display":"block"});
     jQuery("#hidetoolbar").css({"visibility":"visible"});
     jQuery("#toolbar_holder").animate({"margin-top": "0px"},1000);
     

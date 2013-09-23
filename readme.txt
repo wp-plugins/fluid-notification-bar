@@ -20,7 +20,7 @@ Fluid notification bar plugin adds the cool responsive notification bar with hid
 <li> * Say an important message such as server downtime or website maintenance alerts </li>
 </ul>
 
-Read more instructions on using fluid notification bar at http://masterblogster.com/plugins/fluid-notification-bar/
+Read more instructions on using fluid notification bar at http://masterblogster.com/plugins/fluid-notification-bar
 
 == Installation ==
 
@@ -37,3 +37,4 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 = 2.0 =
 * Notification bar will now display on all pages instead of only on homepage
 * Added white background and rounded corners to links
+

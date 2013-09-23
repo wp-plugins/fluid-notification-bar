@@ -21,7 +21,7 @@ function load_fn_notibar_on_header()
         $fn_noti_text=get_option('fn_notibar_options');
 
     if($fn_noti_text['fn_notibar_text']==""){
-    $fn_noti_text['fn_notibar_text']='Welcome to Fluid Notification Bar.. Go to Settings>>Fluid Notification Bar Options to add your notification';
+    $fn_noti_text['fn_notibar_text']='Welcome to Fluid Notification Bar.. Go to Settings>>Fluid Notification Bar Options to add your notification, <a href="http://masterblogster.com/plugins/fluid-notification-bar/" target="blank"> click here</a> for more info.';
     }
     
     echo '<div id="toolbar_holder">
