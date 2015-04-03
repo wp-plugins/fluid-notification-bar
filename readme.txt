@@ -1,26 +1,36 @@
 ﻿=== Fluid Notification Bar ===
 Contributors: shrinitech 
-Donate link:http://masterblogster.com/plugins/fluid-notification-bar/
-Tags: notification bar, toolbar, alert bar, message bar
+Donate link: http://techsini.com/our-wordpress-plugins/fluid-notification-bar/
+Tags: notification bar, toolbar, alert bar, message bar, notify bar, news bar, flash bar
 Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 2.1
+Tested up to: 4.1.1
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Description ==
 
-Fluid notification bar plugin by MasterBlogster adds the cool responsive notification bar with close button on the top of your website. This notification bar slides down with the catchy animation once your wordpress website or blog loads.  It can be used to-
+Fluid notification bar plugin adds the cool responsive notification bar with close button on the top of your website. This notification bar slides down with the catchy animation once your wordpress website or blog loads.  It can be used to-
 
 <ul>
-<li> * Welcome your blog/website visitor </li>
-<li> * Announce the giveaways for your website or blog </li>
-<li> * Link to your blog post or particular page in your website </li>
-<li> * Say an important message such as server downtime or website maintenance alerts </li>
+<li> Welcome your blog/website visitor </li>
+<li> Announce the giveaways for your website or blog </li>
+<li> Link to your blog post or particular page in your website </li>
+<li> Say an important message such as server downtime or website maintenance alerts </li>
 </ul>
 
-Read more instructions on using fluid notification bar at <a href="http://masterblogster.com/plugins/fluid-notification-bar">Master Blogster plugin homepage</a>
+<strong>New Features of Fluid Notification Bar</strong>
+<ul>
+<li>Customizable animation effect for text</li>
+<li>Clickable button to navigate to a link</li>
+<li>Customizable font size, font color as well as background color</li>
+<li>You can set interval for notification bar</li>
+</ul>
+
+Read more instructions on using fluid notification bar at the <a href="http://techsini.com/our-wordpress-plugins/fluid-notification-bar/">official plugin homepage</a>
+
+Check out <a href="http://techsini.com">our website</a> for more stuff.
 
 == Installation ==
 
@@ -44,3 +54,9 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 * Rounded close button
 * Added button style to links
 * Fixed some minor bugs
+
+= 3.0 =
+* Customizable animation effect for text
+* Clickable button to navigate to a link
+* Customizable font size, font color as well as background color
+* You can set interval for notification bar
