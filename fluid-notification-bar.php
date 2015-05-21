@@ -5,7 +5,7 @@ Plugin Name: Fluid Notification Bar
 Plugin URI: http://techsini.com/our-wordpress-plugins/fluid-notification-bar/
 Description: Wanna say something to your website visitor? This plugin adds the cool responsive notification bar on the top of your website homepage.
 Author: Shrinivas Naik
-Version: 3.0
+Version: 3.1
 Author URI: http://techsini.com
 */
 
@@ -114,6 +114,14 @@ if(!class_exists('fluid_notification_bar') && !class_exists('Fn_notibar_options'
                     $fn_notibar_text = 'Welcome to Fluid Notification Bar.. Go to Settings -> Fluid Notification Bar to add your notification.';
                 }
                 ?>
+                
+                <style> 
+                    #hide_fluid_notification_bar {
+                        background-image:url(<?php echo plugins_url('images/close.png', __FILE__ )?>);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                </style>
 
                 <script type="text/javascript">
                 jQuery(document).ready(function(){
@@ -125,12 +133,14 @@ if(!class_exists('fluid_notification_bar') && !class_exists('Fn_notibar_options'
                     function shownotibar() {
                         /*jQuery("#fluid_notification_bar_wrapper").show();*/
                         jQuery("#fluid_notification_bar_wrapper").css({"display":"block"});
-                        jQuery("#fluid_notification_bar_wrapper").animate({"top": "0px"},1000, function(){
-                            jQuery("#fluid_notification_bar").css({"display":"block"});
+                        jQuery("#fluid_notification_bar").css({"display":"block"});
+                        
+                        jQuery("#fluid_notification_bar_wrapper").animate({"margin-top": "0px"},800, function(){
+                            jQuery("#fluid_notification_bar").css({"visibility":"visible"});
                             jQuery('.fnbar_notification').textillate({ 
                                 in: { 
                                     effect: '<?php echo $fn_notibar_animation ?>',
-                                    delayScale: 3.5,
+                                    delayScale: 1.5,
                                     delay: 20,
                                     callback: function () {
                                         jQuery('.fnbar_link').animate(
@@ -167,12 +177,14 @@ if(!class_exists('fluid_notification_bar') && !class_exists('Fn_notibar_options'
                 </style>
 
                 <div id="fluid_notification_bar_wrapper">
+                
                     <div id="fluid_notification_bar"><span class="fnbar_notification"><?php echo $fn_notibar_text; ?></span>
                     <?php if(!empty($fn_notibar_link_title) && !empty($fn_notibar_link)) { ?>
                         <span class="fnbar_link animated"><a href="<?php echo $fn_notibar_link; ?>"><?php echo $fn_notibar_link_title; ?></a></span>
                     <?php } ?>
                     </div>
-                    <div id="hide_fluid_notification_bar">X</div>
+                    <div id="hide_fluid_notification_bar"></div>
+                    
                 </div>
 
             <?php

@@ -3,12 +3,13 @@ jQuery(document).ready(function(){
     
     var toolbarheight=jQuery("#fluid_notification_bar_wrapper").height();
 	jQuery("#fluid_notification_bar").css({"display":"none"});
-    jQuery("#fluid_notification_bar_wrapper").css({"top":-toolbarheight});
+    jQuery("#fluid_notification_bar_wrapper").css({"margin-top":-toolbarheight});
+    console.log(toolbarheight);
     
     //close button
     jQuery("#hide_fluid_notification_bar").bind("click", function(){
         var mytoolbarheight=jQuery("#fluid_notification_bar_wrapper").height();
-        jQuery("#fluid_notification_bar_wrapper").animate({"top": -mytoolbarheight},1000);
+        jQuery("#fluid_notification_bar_wrapper").animate({"margin-top": -mytoolbarheight},600);
         jQuery("#fluid_notification_bar_wrapper").hide(0);
     });
 	

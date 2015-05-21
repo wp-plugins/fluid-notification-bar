@@ -3,8 +3,8 @@ Contributors: shrinitech
 Donate link: http://techsini.com/our-wordpress-plugins/fluid-notification-bar/
 Tags: notification bar, toolbar, alert bar, message bar, notify bar, news bar, flash bar
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 3.0
+Tested up to: 4.2.2
+Stable tag: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,8 @@ Fluid notification bar plugin adds the cool responsive notification bar with clo
 <li>Customizable font size, font color as well as background color</li>
 <li>You can set interval for notification bar</li>
 </ul>
+
+Check out the live demo of <a href="http://techsini.com">Fluid Notification Bar</a>
 
 Read more instructions on using fluid notification bar at the <a href="http://techsini.com/our-wordpress-plugins/fluid-notification-bar/">official plugin homepage</a>
 
@@ -60,3 +62,8 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 * Clickable button to navigate to a link
 * Customizable font size, font color as well as background color
 * You can set interval for notification bar
+
+= 3.1 =
+* Added new close button and fixed close button bug
+* Removed "Fixed to top"
+* Some minor visual enhancements
