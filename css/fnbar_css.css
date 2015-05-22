@@ -60,25 +60,10 @@
 }
 
 #hide_fluid_notification_bar{
-	height: 25px;
 	position: absolute;
-	margin: auto;
 	top: 0;
 	bottom: 0;
 	right: 8px;
-	width: 25px;
-	/* background-color: #FF580A; */
-	color: #FFF;
-	float: right;
-	font-size: small;
+	width: 30px;
 	cursor: pointer;
-	text-align: center;
-	font-weight: bold;
-	padding: 5px;
-	border-radius: 200px 200px 200px 200px;
-	-moz-border-radius: 200px 200px 200px 200px;
-	-webkit-border-radius: 200px 200px 200px 200px;
-	-webkit-box-shadow: inset 0px 1.5px 1px 0px rgba(0,0,0,0.40);
-	-moz-box-shadow: inset 0px 1.5px 1px 0px rgba(0,0,0,0.40);
-	box-shadow: inset 0px 1.5px 1px 0px rgba(0,0,0,0.40);
 }
