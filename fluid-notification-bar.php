@@ -5,7 +5,7 @@ Plugin Name: Fluid Notification Bar
 Plugin URI: http://techsini.com/our-wordpress-plugins/fluid-notification-bar/
 Description: Wanna say something to your website visitor? This plugin adds the cool responsive notification bar on the top of your website homepage.
 Author: Shrinivas Naik
-Version: 3.2
+Version: 3.2.1
 Author URI: http://techsini.com
 */
 
@@ -174,7 +174,7 @@ if(!class_exists('fluid_notification_bar') && !class_exists('Fn_notibar_options'
 
                                         });
                                         },1000);
-                                        
+
                                         jQuery('.fnbar_link').animate(
                                             {
                                                 "opacity": 1
