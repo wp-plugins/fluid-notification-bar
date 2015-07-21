@@ -165,22 +165,21 @@ if(!class_exists('fluid_notification_bar') && !class_exists('Fn_notibar_options'
                                     delayScale: 1.5,
                                     delay: 20,
                                     callback: function () {
+                                        setTimeout(function(){
+                                        jQuery("#fluid_notification_bar .soc li").each(function(i){
+                                          jQuery(this).delay(300 * i).animate({
+                                            opacity: 1,
+                                            marginTop: "0px"
+                                          }, 400 , "linear");
+
+                                        });
+                                        },1000);
+                                        
                                         jQuery('.fnbar_link').animate(
                                             {
                                                 "opacity": 1
                                             },0, function(){
                                                 jQuery(this).addClass("bounceIn");
-
-                                                setTimeout(function(){
-                                                jQuery("#fluid_notification_bar .soc li").each(function(i){
-                                                  jQuery(this).delay(300 * i).animate({
-                                                    opacity: 1,
-                                                    marginTop: "0px"
-                                                  }, 400 , "linear");
-                                                  
-                                                });
-                                              },1000);
-
                                             });
                                     }
                                 }
