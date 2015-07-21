@@ -1,4 +1,4 @@
-<?php 
+<?php
 class fn_notibar_options {
 
     //Holds the values to be used in the fields callbacks
@@ -14,39 +14,40 @@ class fn_notibar_options {
     }
 
     public function add_plugin_menu_fnbar (){
-        
-        add_options_page( "Fluid Notification Bar", //page_title 
+
+        add_options_page( "Fluid Notification Bar", //page_title
                          "Fluid Notification Bar", //menu_title
                          "administrator", //capability
                          "fluid-notification-bar-settings", //menu_slug
                          array($this, "create_admin_page_fnbar")); //callback function
-        
+
     }
 
     public function register_admin_scripts(){
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'Fnbar_admin', plugins_url('js/fnbar_admin.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+        wp_enqueue_style( 'custom-admin-style', plugins_url('css/admin-style.css', __FILE__));
     }
 
     public function create_admin_page_fnbar (){
 
         $this->options = get_option ( 'fluid_notification_bar_settings' );
-        
+
         ?>
             <div class="wrap">
-                
+
                 <div id="poststuff">
                     <div id="post-body" class="metabox-holder columns-2">
-                        
-                        
+
+
                         <div id="post-body-content">
                             <div class="meta-box-sortables ui-sortable">
                                 <div class="postbox">
                                     <h3><span class="dashicons dashicons-admin-generic"></span>Fluid Notification Bar Settings</h3>
                                     <div class="inside">
                                         <form method="post" action="options.php">
-                                            <?php 
-                                            // This prints out all hidden setting fields 
+                                            <?php
+                                            // This prints out all hidden setting fields
                                             settings_fields( 'fluid_notification_bar_settings_group' ); //option group
                                             do_settings_sections( 'fluid-notification-bar-settings' ); //settings page slug
                                             submit_button(); ?>
@@ -55,8 +56,8 @@ class fn_notibar_options {
                                 </div>
                             </div>
                         </div> <!--post-body-content-->
-                        
-                        
+
+
                         <!-- sidebar -->
                         <div id="postbox-container-1" class="postbox-container">
                             <div class="meta-box-sortables">
@@ -68,10 +69,37 @@ class fn_notibar_options {
                                         Thank you for installing this plugin.
                                     </div> <!-- .inside -->
                                 </div> <!-- .postbox -->
+
+                                <div class="postbox">
+                                    <h3><span>Rate This Plugin!</span></h3>
+                                    <div class="inside">
+                                      <p>Please <a href="https://wordpress.org/plugins/fluid-notification-bar/" target="_blank">rate this plugin</a> and share it to help the development.</p>
+
+                                      <ul class="soc">
+                                        <li><a class="soc-facebook" href="https://www.facebook.com/techsini" target="_blank"></a></li>
+                                        <li><a class="soc-twitter" href="https://twitter.com/techsini" target="_blank"></a></li>
+                                        <li><a class="soc-google soc-icon-last" href="https://plus.google.com/+Techsini" target="_blank"></a></li>
+                                      </ul>
+
+                                    </div> <!-- .inside -->
+                                </div> <!-- .postbox -->
+
+                                <div class="postbox">
+                                    <h3><span>Our other WordPress Plugins</span></h3>
+                                    <div class="inside">
+                                      <ul>
+                                      <li><a href="http://techsini.com/our-wordpress-plugins/simple-adblock-notice/">Simple Adblock Notice</a></li>
+                                      <li><a href="http://techsini.com/our-wordpress-plugins/elegant-subscription-popup/">Elegant Subscription Popup</a></li>
+                                      <li><a href="http://masterblogster.com/plugins/disable-right-click/">Disable Right Click</a></li>
+                                      <li><a href="http://masterblogster.com/plugins/ads-within-paragraph/">Ads Within Paragraph</a></li>
+                                      </ul>
+                                    </div> <!-- .inside -->
+                                </div> <!-- .postbox -->
+
                             </div> <!-- .meta-box-sortables -->
                         </div> <!-- #postbox-container-1 .postbox-container -->
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -85,7 +113,7 @@ class fn_notibar_options {
         'fluid_notification_bar_settings_group', // Option group
         'fluid_notification_bar_settings' // Option name
         );
-        
+
         add_settings_section(
             'section1', // ID
             '', // Title
@@ -94,92 +122,158 @@ class fn_notibar_options {
         );
 
         add_settings_field(
+            'general_settings', // ID
+            '<span class="dashicons dashicons-welcome-write-blog"></span> General Settings', // Title
+            array( $this, 'general_settings_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
             'fnbar_enabled', // ID
-            'Show Notification Bar', // Title 
+            'Show Notification Bar', // Title
             array( $this, 'fnbar_enabled_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_text', // ID
-            'Notification Bar Text', // Title 
+            'Notification Bar Text', // Title
             array( $this, 'fnbar_text_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_link_text', // ID
-            'Notification Bar Link Title (Button Caption)', // Title 
+            'Notification Bar Link Title (Button Caption)', // Title
             array( $this, 'fnbar_link_text_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_link', // ID
-            'Notification Bar Link (Button URL)', // Title 
+            'Notification Bar Link (Button URL)', // Title
             array( $this, 'fnbar_link_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'socialmedia_settings', // ID
+            '<span class="dashicons dashicons-share"></span> <abbr title="Leave the links empty if you do not want to show the respective social media icons">Social Media Settings</abbr>', // Title
+            array( $this, 'socialmedia_settings_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'googleplus_link', // ID
+            'Google+ Link', // Title
+            array( $this, 'googleplus_link_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'facebook_link', // ID
+            'Facebook Link', // Title
+            array( $this, 'facebook_link_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'twitter_link', // ID
+            'Twitter Link', // Title
+            array( $this, 'twitter_link_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'pinterest_link', // ID
+            'Pinterest Link', // Title
+            array( $this, 'pinterest_link_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'linkedin_link', // ID
+            'Linkedin Link', // Title
+            array( $this, 'linkedin_link_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'customization_settings', // ID
+            '<span class="dashicons dashicons-admin-appearance"></span> Customization Settings', // Title
+            array( $this, 'customization_settings_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_fontsize', // ID
-            'Font Size', // Title 
+            'Font Size', // Title
             array( $this, 'fnbar_fontsize_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_textcolor', // ID
-            'Text Color', // Title 
+            'Text Color', // Title
             array( $this, 'fnbar_textcolor_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_bgcolor', // ID
-            'Background Color', // Title 
+            'Background Color', // Title
             array( $this, 'fnbar_bgcolor_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
-
-        /*add_settings_field(
-            'fnbar_showonpagepost', // ID
-            'Show on Pages', // Title 
-            array( $this, 'fnbar_showonpagepost_callback' ), // Callback
-            'fluid-notification-bar-settings', // Page
-            'section1' // Section           
-        );*/
 
         add_settings_field(
             'fnbar_animation', // ID
-            'Text Animation', // Title 
+            'Text Animation', // Title
             array( $this, 'fnbar_animation_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
+        );
+
+        add_settings_field(
+            'fnbar_delay', // ID
+            'Notification Bar Delay', // Title
+            array( $this, 'fnbar_delay_callback' ), // Callback
+            'fluid-notification-bar-settings', // Page
+            'section1' // Section
         );
 
         add_settings_field(
             'fnbar_interval', // ID
-            'Do not Disturb for (interval)', // Title 
+            'Do not Disturb for (interval)', // Title
             array( $this, 'fnbar_interval_callback' ), // Callback
             'fluid-notification-bar-settings', // Page
-            'section1' // Section           
+            'section1' // Section
         );
 
     }
 
     public function section_1_callback(){
-        
+
     }
 
-    
+    public function general_settings_callback(){
+
+    }
 
     public function fnbar_enabled_callback(){
         if(isset($this->options['fnbar_enabled'])){
@@ -209,6 +303,34 @@ class fn_notibar_options {
         printf('<input type="text" id="fnbar_link" name="fluid_notification_bar_settings[fnbar_link]" value="%s" /> example:www.example.com',  isset( $this->options['fnbar_link'] ) ? esc_attr( $this->options['fnbar_link']) : '');
     }
 
+    public function socialmedia_settings_callback(){
+
+    }
+
+    public function googleplus_link_callback(){
+        printf('<input type="text" id="googleplus_link" name="fluid_notification_bar_settings[googleplus_link]" value="%s" />',  isset( $this->options['googleplus_link'] ) ? esc_attr( $this->options['googleplus_link']) : '');
+    }
+
+    public function facebook_link_callback(){
+        printf('<input type="text" id="facebook_link" name="fluid_notification_bar_settings[facebook_link]" value="%s" />',  isset( $this->options['facebook_link'] ) ? esc_attr( $this->options['facebook_link']) : '');
+    }
+
+    public function twitter_link_callback(){
+        printf('<input type="text" id="twitter_link" name="fluid_notification_bar_settings[twitter_link]" value="%s" />',  isset( $this->options['twitter_link'] ) ? esc_attr( $this->options['twitter_link']) : '');
+    }
+
+    public function pinterest_link_callback(){
+        printf('<input type="text" id="pinterest_link" name="fluid_notification_bar_settings[pinterest_link]" value="%s" />',  isset( $this->options['pinterest_link'] ) ? esc_attr( $this->options['pinterest_link']) : '');
+    }
+
+    public function linkedin_link_callback(){
+        printf('<input type="text" id="linkedin_link" name="fluid_notification_bar_settings[linkedin_link]" value="%s" />',  isset( $this->options['linkedin_link'] ) ? esc_attr( $this->options['linkedin_link']) : '');
+    }
+
+    public function customization_settings_callback(){
+
+    }
+
     public function fnbar_fontsize_callback(){
         printf('<input type="text" class="small-text" id="fnbar_fontsize" name="fluid_notification_bar_settings[fnbar_fontsize]" value="%s" /> px',  isset( $this->options['fnbar_fontsize'] ) ? esc_attr( $this->options['fnbar_fontsize']) : '');
     }
@@ -220,35 +342,6 @@ class fn_notibar_options {
     public function fnbar_bgcolor_callback(){
         printf('<input id="fnbar_bgcolor" name="fluid_notification_bar_settings[fnbar_bgcolor]" type="text" value="%s" />',  isset( $this->options['fnbar_bgcolor'] ) ? esc_attr( $this->options['fnbar_bgcolor']) : '');
     }
-
-    /*public function fnbar_showonpagepost_callback(){
-        if(isset($this->options['fnbar_showonpages'])){
-            $showonpages = $this->options['fnbar_showonpages'];
-        } else {
-            $showonpages = 0;
-        }
-
-        if(isset($this->options['fnbar_showonposts'])){
-            $showonposts = $this->options['fnbar_showonposts'];
-        } else {
-            $showonposts = 0;
-        }
-
-        printf ('<fieldset>
-                <label for="fnbar_showonpages">
-                <input type = "checkbox"
-                    id = "fnbar_showonpages"
-                    name= "fluid_notification_bar_settings[fnbar_showonpages]"
-                    value = "1"' . checked(1, $showonpages, false) . '/>'.
-                'Pages</label> ' .
-                '<label for="fnbar_showonposts">
-                <input type = "checkbox"
-                    id = "fnbar_showonposts"
-                    name= "fluid_notification_bar_settings[fnbar_showonposts]"
-                    value = "1"' . checked(1, $showonposts, false) . '/>'.
-                'Posts</label>'.
-                '</fieldset>');
-    }*/
 
     public function fnbar_animation_callback(){
 
@@ -292,6 +385,23 @@ class fn_notibar_options {
             );
     }
 
+    public function fnbar_delay_callback(){
+
+        $fnbardelay = isset( $this->options['fnbar_delay'] ) ? esc_attr( $this->options['fnbar_delay']) : '2';
+
+        echo ('<select id="fnbar_delay" name="fluid_notification_bar_settings[fnbar_delay]">' .
+                '<option value="2" ' . selected($fnbardelay, "2", false) . '>2</option>' .
+                '<option value="5" ' . selected($fnbardelay, "5", false) . '>5</option>' .
+                '<option value="10" ' . selected($fnbardelay, "10", false) . '>10</option>' .
+                '<option value="20" ' . selected($fnbardelay, "20", false) . '>20</option>' .
+                '<option value="30" ' . selected($fnbardelay, "30", false) . '>30</option>' .
+                '<option value="40" ' . selected($fnbardelay, "40", false) . '>40</option>' .
+                '<option value="50" ' . selected($fnbardelay, "50", false) . '>50</option>' .
+                '<option value="60" ' . selected($fnbardelay, "60", false) . '>60</option>' .
+                '</select> seconds'
+            );
+    }
+
     public function fnbar_interval_callback(){
 
         if(isset($this->options['fnbar_interval'])){
@@ -301,8 +411,8 @@ class fn_notibar_options {
         }
 
         echo ('<select id="fnbar_interval" name="fluid_notification_bar_settings[fnbar_interval]">' .
-                '<option value="5" ' . selected($fnbarinterval, "5", false) . '>5</option>' . 
-                '<option value="10" ' . selected($fnbarinterval, "10", false) . '>10</option>' . 
+                '<option value="5" ' . selected($fnbarinterval, "5", false) . '>5</option>' .
+                '<option value="10" ' . selected($fnbarinterval, "10", false) . '>10</option>' .
                 '<option value="20" ' . selected($fnbarinterval, "20", false) . '>30</option>' .
                 '<option value="40" ' . selected($fnbarinterval, "40", false) . '>30</option>' .
                 '<option value="60" ' . selected($fnbarinterval, "60", false) . '>30</option>' .
