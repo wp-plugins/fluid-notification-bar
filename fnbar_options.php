@@ -413,9 +413,9 @@ class fn_notibar_options {
         echo ('<select id="fnbar_interval" name="fluid_notification_bar_settings[fnbar_interval]">' .
                 '<option value="5" ' . selected($fnbarinterval, "5", false) . '>5</option>' .
                 '<option value="10" ' . selected($fnbarinterval, "10", false) . '>10</option>' .
-                '<option value="20" ' . selected($fnbarinterval, "20", false) . '>30</option>' .
-                '<option value="40" ' . selected($fnbarinterval, "40", false) . '>30</option>' .
-                '<option value="60" ' . selected($fnbarinterval, "60", false) . '>30</option>' .
+                '<option value="20" ' . selected($fnbarinterval, "20", false) . '>20</option>' .
+                '<option value="40" ' . selected($fnbarinterval, "40", false) . '>40</option>' .
+                '<option value="60" ' . selected($fnbarinterval, "60", false) . '>60</option>' .
                 '</select> Minutes'
             );
     }

@@ -4,7 +4,7 @@ Donate link: http://techsini.com/our-wordpress-plugins/fluid-notification-bar/
 Tags: notification bar, notice bar, alert bar, message bar, notify bar, news bar, flash bar
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 3.2.1
+Stable tag: 3.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,7 +79,7 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 * Removed "Fixed to top"
 * Some minor visual enhancements
 
-= 3.2.1 =
+= 3.2.2 =
 * Now you can add Social media buttons in the notification bar
 * Added delay option for notification bar
 * Prevented showing the notification bar in target link (action button link)
